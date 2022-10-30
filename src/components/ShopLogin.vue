@@ -65,13 +65,13 @@ export default {
         if (!result) {
           return;
         }
+        const loading = this.$loading({
+          lock: true,
+          text: "Loading",
+          spinner: "el-icon-loading",
+          background: "rgba(255, 255, 255, 0.7)",
+        });
         try {
-          const loading = this.$loading({
-            lock: true,
-            text: "Loading",
-            spinner: "el-icon-loading",
-            background: "rgba(255, 255, 255, 0.7)",
-          });
           const { data } = await this.$axios.post("/login", {
             username: this.loginForm.account,
             password: this.loginForm.password,
@@ -87,6 +87,7 @@ export default {
           }
         } catch (e) {
           this.$message.error("网络异常");
+          loading.close();
         }
       });
     },

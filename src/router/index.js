@@ -9,10 +9,23 @@ const routes = [
     path: "/",
     redirect: "/home",
   },
+  // 使用命名路由导航到父路由，其嵌套子路由不会渲染，但刷新后会渲染。
   {
     path: "/home",
-    name: "home",
     component: () => import("@/components/ShopHome.vue"),
+    children: [
+      {
+        // 默认子路有
+        path: "/",
+        name: "welcom",
+        component: () => import("@/components/ShopWelcom.vue"),
+      },
+      {
+        path: "/users",
+        name: "users",
+        component: () => import("@/components/user/Users.vue"),
+      },
+    ],
   },
   {
     path: "/login",
@@ -26,7 +39,6 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log(to);
   if (to.path === "/home") {
     if (window.sessionStorage.getItem("token") !== null) {
       return next();
