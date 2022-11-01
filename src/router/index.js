@@ -17,13 +17,23 @@ const routes = [
       {
         // 默认子路有
         path: "/",
-        name: "welcom",
+        name: "welcome",
         component: () => import("@/components/ShopWelcom.vue"),
       },
       {
         path: "/users",
         name: "users",
         component: () => import("@/components/user/Users.vue"),
+      },
+      {
+        path: "/rights",
+        name: "rights",
+        component: () => import("@/components/Power/ShopRights.vue"),
+      },
+      {
+        path: "/roles",
+        name: "roles",
+        component: () => import("@/components/Power/ShopeRoles.vue"),
       },
     ],
   },
