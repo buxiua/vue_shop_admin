@@ -21,7 +21,7 @@
           <el-submenu
             v-for="item in orderMenuList"
             :key="item.id"
-            :index="item.path"
+            :index="'/' + item.path"
           >
             <template slot="title">
               <i class="el-icon-edit"></i>
@@ -30,7 +30,7 @@
             <el-menu-item
               v-for="child in item.children"
               :key="child.id"
-              :index="child.path"
+              :index="'/' + child.path"
             >
               <i class="el-icon-edit"></i>
               <span>{{ child.authName }}</span>

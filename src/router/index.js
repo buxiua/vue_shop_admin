@@ -28,12 +28,33 @@ const routes = [
       {
         path: "/rights",
         name: "rights",
-        component: () => import("@/components/Power/ShopRights.vue"),
+        component: () => import("@/components/power/ShopRights.vue"),
       },
       {
         path: "/roles",
         name: "roles",
-        component: () => import("@/components/Power/ShopeRoles.vue"),
+        component: () => import("@/components/power/ShopeRoles.vue"),
+      },
+      {
+        path: "/goods",
+        name: "goods",
+        component: () => import("@/components/good/ShopGood.vue"),
+      },
+      {
+        path: "/good/:action",
+        name: "goodEdit",
+        component: () => import("@/components/good/GoodEdit.vue"),
+        props: true,
+      },
+      {
+        path: "/params",
+        name: "params",
+        component: () => import("@/components/good/ShopParam.vue"),
+      },
+      {
+        path: "/categories",
+        name: "categories",
+        component: () => import("@/components/good/ShopCategory.vue"),
       },
     ],
   },
